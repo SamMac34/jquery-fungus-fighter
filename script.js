@@ -29,9 +29,9 @@ function onReady() {
     // - Rendered to the DOM
     
     $('.attacks').on('click', '.arcane-scepter', arcaneSceptreAttack);
-    $('.attacks').on('click', '.entangle', entangleAttack);
-    $('.attacks').on('click', '.arcane-scepter', dragonBladeAttack);
-    $('.attacks').on('click', '.arcane-scepter', starFireAttack);
+    // $('.attacks').on('click', '.entangle', entangleAttack);
+    // $('.attacks').on('click', '.arcane-scepter', dragonBladeAttack);
+    // $('.attacks').on('click', '.arcane-scepter', starFireAttack);
 
 
 }
@@ -44,24 +44,27 @@ function onReady() {
 function arcaneSceptreAttack(){
 console.log('in arcane sceptre attack:');
 
-if(enemyHP >= 14){
-    enemyHP -= 14;
-} else {
-    enemyHP = 0;
-}
-
 if(playerAP >= 12){
     playerAP -= 12
 } else {
     playerAP = 0
 }
-console.log('enemyHP is:', enemyHP);
+
+if(enemyHP >= 14){
+    enemyHP -= 14;
+} else {
+    enemyHP = 0;
+}
 console.log('playerAP is:', playerAP);
+console.log('enemyHP is:', enemyHP);
 
+renderAPHP();
 }
 
-function entangleAttack(){
 
+function renderAPHP(){
+console.log('in renderAPHP');
+
+$('.ap-text').text(playerAP);
+$('.hp-text').text(enemyHP);
 }
-
-function 
