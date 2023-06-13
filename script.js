@@ -62,9 +62,38 @@ renderAPHP();
 }
 
 
-function renderAPHP(){
-console.log('in renderAPHP');
+// - Update the text above the enemy fungus (eg, "100 HP")
+// - If the Freaky Fungus runs out of HP, the monster is dead and you win! Replace the `walk` class 
+// with a `dead` class on the freaky-fungus element, to make them fall over and die.
 
-$('.ap-text').text(playerAP);
-$('.hp-text').text(enemyHP);
+// - If you run out of AP, the monster wins and humanity is doomed 😢 Replace the `walk` class with a 
+// `jump` class on the freaky-fungus element, to make them jump for the glory of the fungal race.
+
+//   - You may no longer attack, if AP is `0`. Give all of the attack buttons a [`disabled`]
+//   (https://www.w3schools.com/tags/att_button_disabled.asp) attribute, so they may no longer be used. 
+
+function renderAPHP(){
+// console.log('in renderAPHP');
+    if(playerAP >= 12){
+        $('.ap-text').text(playerAP);
+    }
+    else if(playerAP == 0){
+        // console.log('In else if of renderAPHP. playerAP is:', playerAP);
+        $('.ap-text').text(playerAP);
+        $('.attack-btn').attr('disabled', true);
+    } else {
+        // console.log('in else of renderAPHP, playerAP is:', playerAP)
+        $('.ap-text').text(playerAP);
+        $('.freaky-fungus').removeClass('walk');
+        $('.freaky-fungus').addClass('jump');
+        // Verified class change in element console
+    }
+    
+    if(enemyHP >= 1){
+        $('.hp-text').text(enemyHP);
+    } else {
+        $('.hp-text').text(enemyHP);
+        $('.freaky-fungus').removeClass('walk');
+        $('.freaky-fungus').addClass('dead');
+    }
 }
