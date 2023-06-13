@@ -3,6 +3,8 @@ console.log('JS loaded!')
 
 let fungusHP = 100;
 let playerAP = 100;
+let apMeter = 100;
+let hpMeter = 100;
 
 
 function onReady() {
@@ -93,7 +95,7 @@ function starFireAttack(){
     } else {
         fungusHP = 0;
     }
-    
+
     console.log('playerAP is:', playerAP);
     console.log('fungusHP is:', fungusHP);
     
@@ -102,6 +104,7 @@ function starFireAttack(){
 
 function renderAPHP(){
 // console.log('in renderAPHP');
+    // Render player AP
     if(playerAP >= 12){
         $('.ap-text').text(playerAP);
     }
@@ -116,7 +119,7 @@ function renderAPHP(){
         $('.freaky-fungus').addClass('jump');
         // Verified class change in element console
     }
-    
+    // Render fungus HP
     if(fungusHP >= 1){
         $('.hp-text').text(fungusHP);
     } else {
@@ -124,4 +127,12 @@ function renderAPHP(){
         $('.freaky-fungus').removeClass('walk');
         $('.freaky-fungus').addClass('dead');
     }
+
+    // Render progress bar
+    $('#ap-meter').val(playerAP);
+    console.log('ap-meter value is:', $('#ap-meter').val());
+
+    $('#hp-meter').val(fungusHP);
+    console.log('hp-meter value is:', $('#hp-meter').val());
 }
+
