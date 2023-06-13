@@ -1,29 +1,18 @@
 $(document).ready(onReady);
 console.log('JS loaded!')
-// State Variables can be declared outside of the onReady
-// Feel free to make this to what you want!
-// Example:
-// let fungusHP = 100;
+
 let fungusHP = 100;
 let playerAP = 100;
 
 
 function onReady() {
-    console.log('JQuery is ready!');
-    // Make sure you check the index.html file! 
-    // There are lots of buttons and things ready for you to hook into here!
-    // 🧠 Remember
-    // - Handle events that ->
-    // - Updates state which is ->
-    // - Rendered to the DOM
+    console.log('JQuery ready!');
 
     // Atk button listeners
     $('.attacks').on('click', '.arcane-scepter', arcaneSceptreAttack);
     $('.attacks').on('click', '.entangle', entangleAttack);
-    $('.attacks').on('click', '.arcane-scepter', dragonBladeAttack);
-    $('.attacks').on('click', '.arcane-scepter', starFireAttack);
-
-
+    $('.attacks').on('click', '.dragon-blade', dragonBladeAttack);
+    $('.attacks').on('click', '.star-fire', starFireAttack);
 }
 
 
@@ -41,6 +30,7 @@ if(fungusHP >= 14){
 } else {
     fungusHP = 0;
 }
+
 console.log('playerAP is:', playerAP);
 console.log('fungusHP is:', fungusHP);
 
@@ -61,6 +51,7 @@ function entangleAttack(){
     } else {
         fungusHP = 0;
     }
+
     console.log('playerAP is:', playerAP);
     console.log('fungusHP is:', fungusHP);
     
@@ -81,6 +72,7 @@ function dragonBladeAttack(){
     } else {
         fungusHP = 0;
     }
+
     console.log('playerAP is:', playerAP);
     console.log('fungusHP is:', fungusHP);
     
@@ -101,6 +93,7 @@ function starFireAttack(){
     } else {
         fungusHP = 0;
     }
+    
     console.log('playerAP is:', playerAP);
     console.log('fungusHP is:', fungusHP);
     
